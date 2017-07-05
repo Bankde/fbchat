@@ -822,6 +822,7 @@ class Client(object):
     def _doSendRequest(self, data):
         """Sends the data to `SendURL`, and returns the message ID or None on failure"""
         j = checkRequest(self._post(ReqUrl.SEND, data))
+        print j
 
         try:
             message_ids = [action['message_id'] for action in j['payload']['actions'] if 'message_id' in action]
